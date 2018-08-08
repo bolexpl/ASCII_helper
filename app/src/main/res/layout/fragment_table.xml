@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableLayout
+            android:id="@+id/table"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            tools:context="com.example.bolek.ascii_helper.Fragments.TableFragment">
+
+            <TableRow
+                android:layout_width="fill_parent"
+                android:layout_height="?android:attr/listPreferredItemHeight">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="0"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    android:background="@drawable/border_head"
+                    android:text="Znak" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="1"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    android:background="@drawable/border_head"
+                    android:text="Dec" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="2"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    android:background="@drawable/border_head"
+                    android:text="Hex" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_column="3"
+                    android:layout_weight="1"
+                    android:padding="3dp"
+                    android:background="@drawable/border_head"
+                    android:text="Bin" />
+            </TableRow>
+
+        </TableLayout>
+    </ScrollView>
+</RelativeLayout>
+
+

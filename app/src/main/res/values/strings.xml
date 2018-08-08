@@ -1,0 +1,24 @@
+<resources>
+    <string name="app_name">ASCII Helper</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="nav_all">Wszystko</string>
+    <string name="nav_big">Duże litery</string>
+    <string name="nav_small">Małe litery</string>
+    <string name="nav_another">Inne znaki</string>
+    <string name="nav_pl">Polskie znaki</string>
+    <string name="nav_converter">Konwerter</string>
+    <string name="nav_converter_hex">Przelicznik hexadecymalny</string>
+    <string name="nav_converter_dec">Przelicznik decymalny</string>
+    <string name="nav_converter_bin">Przelicznik binarny</string>
+
+    <string name="drawer_up">Pomocnik ASCII</string>
+    <string name="drawer_down">Tablice i konwerter</string>
+
+    <string name="hint">Liczba</string>
+
+</resources>

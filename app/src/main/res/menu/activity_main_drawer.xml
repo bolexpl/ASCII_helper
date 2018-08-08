@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_all"
+            android:icon="@drawable/android_studio"
+            android:title="@string/nav_all" />
+        <item
+            android:id="@+id/nav_big"
+            android:icon="@drawable/format_color_text"
+            android:title="@string/nav_big" />
+        <item
+            android:id="@+id/nav_small"
+            android:icon="@drawable/alphabetical"
+            android:title="@string/nav_small" />
+        <item
+            android:id="@+id/nav_another"
+            android:icon="@drawable/code_braces"
+            android:title="@string/nav_another" />
+        <item
+            android:id="@+id/nav_pl"
+            android:icon="@drawable/format_annotation_plus"
+            android:title="@string/nav_pl" />
+        <item
+            android:id="@+id/nav_converter"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/nav_converter" />
+        <item
+            android:id="@+id/nav_converter_hex"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/nav_converter_hex" />
+        <item
+            android:id="@+id/nav_converter_dec"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/nav_converter_dec" />
+        <item
+            android:id="@+id/nav_converter_bin"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/nav_converter_bin" />
+    </group>
+
+</menu>

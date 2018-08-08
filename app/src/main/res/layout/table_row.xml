@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableRow xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="?android:attr/listPreferredItemHeight">
+
+    <TextView
+        android:id="@+id/znak"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="0"
+        android:layout_weight="1"
+        android:padding="3dp"
+        android:background="@drawable/border"
+        android:text="znak" />
+
+    <TextView
+        android:id="@+id/dec"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="1"
+        android:layout_weight="1"
+        android:padding="3dp"
+        android:background="@drawable/border"
+        android:text="dec" />
+
+    <TextView
+        android:id="@+id/hex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="2"
+        android:layout_weight="1"
+        android:padding="3dp"
+        android:background="@drawable/border"
+        android:text="hex" />
+
+    <TextView
+        android:id="@+id/bin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_column="3"
+        android:layout_weight="1"
+        android:padding="3dp"
+        android:background="@drawable/border"
+        android:text="bin" />
+</TableRow>
