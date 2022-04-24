@@ -1,9 +1,11 @@
 package com.example.bolek.ascii_helper.Fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.ShareCompat;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.core.app.ShareCompat;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -13,6 +15,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.bolek.ascii_helper.R;
+
+import java.util.Objects;
 
 public class DecFragment extends Fragment {
     EditText edit;
@@ -31,12 +35,12 @@ public class DecFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        edit = (EditText) getActivity().findViewById(R.id.dec);
-        bin = (TextView) getActivity().findViewById(R.id.bin);
-        hex = (TextView) getActivity().findViewById(R.id.hex);
+        edit = requireActivity().findViewById(R.id.dec);
+        bin = requireActivity().findViewById(R.id.bin);
+        hex = requireActivity().findViewById(R.id.hex);
 
         edit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -54,15 +58,13 @@ public class DecFragment extends Fragment {
                 change();
             }
         });
-
-
     }
 
     private void change() {
         String s = edit.getText().toString();
         if (s.equals("")) {
-            bin.setText("Bin: 0");
-            hex.setText("Hex: 0");
+            bin.setText(R.string.bin_0);
+            hex.setText(R.string.hex_0);
             return;
         }
 

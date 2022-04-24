@@ -1,8 +1,10 @@
 package com.example.bolek.ascii_helper.Fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +14,9 @@ import android.widget.TextView;
 
 import com.example.bolek.ascii_helper.R;
 import com.example.bolek.ascii_helper.Tools;
+
+import java.util.Locale;
+import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -31,52 +36,55 @@ public class AnotherFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TableLayout table = (TableLayout) getActivity().findViewById(R.id.table);
+        TableLayout table = requireActivity().findViewById(R.id.table);
         TextView tv;
         TableRow tr;
 
         for (int i = 32; i <= 64; i++) {
-            tr = (TableRow) getActivity().getLayoutInflater().inflate(R.layout.table_row, null, false);
-            tv = (TextView) tr.findViewById(R.id.znak);
+            tr = (TableRow) requireActivity().getLayoutInflater()
+                    .inflate(R.layout.table_row, (ViewGroup) view, false);
+            tv = tr.findViewById(R.id.znak);
             if(i==32){
-                tv.setText("spacja");
+                tv.setText(R.string.space);
             }else{
                 tv.setText(String.valueOf((char) i));
             }
-            tv = (TextView) tr.findViewById(R.id.dec);
-            tv.setText(Integer.toString(i));
-            tv = (TextView) tr.findViewById(R.id.hex);
+            tv = tr.findViewById(R.id.dec);
+            tv.setText(String.format(Locale.getDefault(),"%d", i));
+            tv = tr.findViewById(R.id.hex);
             tv.setText(Integer.toHexString(i));
-            tv = (TextView) tr.findViewById(R.id.bin);
+            tv = tr.findViewById(R.id.bin);
             tv.setText(Tools.toBin(i));
             table.addView(tr);
         }
 
         for (int i = 91; i <= 96; i++) {
-            tr = (TableRow) getActivity().getLayoutInflater().inflate(R.layout.table_row, null, false);
-            tv = (TextView) tr.findViewById(R.id.znak);
+            tr = (TableRow) requireActivity().getLayoutInflater()
+                    .inflate(R.layout.table_row, (ViewGroup) view, false);
+            tv = tr.findViewById(R.id.znak);
             tv.setText(String.valueOf((char) i));
-            tv = (TextView) tr.findViewById(R.id.dec);
-            tv.setText(Integer.toString(i));
-            tv = (TextView) tr.findViewById(R.id.hex);
+            tv = tr.findViewById(R.id.dec);
+            tv.setText(String.format(Locale.getDefault(),"%d", i));
+            tv = tr.findViewById(R.id.hex);
             tv.setText(Integer.toHexString(i));
-            tv = (TextView) tr.findViewById(R.id.bin);
+            tv = tr.findViewById(R.id.bin);
             tv.setText(Tools.toBin(i));
             table.addView(tr);
         }
 
         for (int i = 123; i <= 126; i++) {
-            tr = (TableRow) getActivity().getLayoutInflater().inflate(R.layout.table_row, null, false);
-            tv = (TextView) tr.findViewById(R.id.znak);
+            tr = (TableRow) requireActivity().getLayoutInflater()
+                    .inflate(R.layout.table_row, (ViewGroup) view, false);
+            tv = tr.findViewById(R.id.znak);
             tv.setText(String.valueOf((char) i));
-            tv = (TextView) tr.findViewById(R.id.dec);
-            tv.setText(Integer.toString(i));
-            tv = (TextView) tr.findViewById(R.id.hex);
+            tv = tr.findViewById(R.id.dec);
+            tv.setText(String.format(Locale.getDefault(),"%d", i));
+            tv = tr.findViewById(R.id.hex);
             tv.setText(Integer.toHexString(i));
-            tv = (TextView) tr.findViewById(R.id.bin);
+            tv = tr.findViewById(R.id.bin);
             tv.setText(Tools.toBin(i));
             table.addView(tr);
         }

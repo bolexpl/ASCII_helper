@@ -1,8 +1,8 @@
 package com.example.bolek.ascii_helper.Fragments;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,9 +10,12 @@ import android.widget.TextView;
 
 import com.example.bolek.ascii_helper.R;
 
+import java.util.Locale;
+import java.util.Objects;
+
 public class BinFragment extends Fragment {
 
-    TextView tv[];
+    TextView[] tv;
     TextView dec;
     TextView hex;
 
@@ -31,7 +34,7 @@ public class BinFragment extends Fragment {
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        int id[] = {
+        int[] id = {
                 R.id.textView,
                 R.id.textView2,
                 R.id.textView3,
@@ -52,17 +55,12 @@ public class BinFragment extends Fragment {
         tv = new TextView[id.length];
 
         for (int i = 0; i < id.length; i++) {
-            tv[i] = (TextView) getActivity().findViewById(id[i]);
-            tv[i].setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    onChange(view);
-                }
-            });
+            tv[i] = requireActivity().findViewById(id[i]);
+            tv[i].setOnClickListener(this::onChange);
         }
 
-        dec = (TextView) getActivity().findViewById(R.id.dec);
-        hex = (TextView) getActivity().findViewById(R.id.hex);
+        dec = requireActivity().findViewById(R.id.dec);
+        hex = requireActivity().findViewById(R.id.hex);
     }
 
     private void onChange(View v) {
@@ -80,12 +78,12 @@ public class BinFragment extends Fragment {
 
     private void calculate(){
         StringBuilder s = new StringBuilder();
-        for(int i=0; i<tv.length; i++){
-            s.append(tv[i].getText().toString());
+        for (TextView textView : tv) {
+            s.append(textView.getText().toString());
         }
 
         int x = Integer.parseInt(s.toString(),2);
-        dec.setText("Dec: "+Integer.toString(x));
-        hex.setText("Hex: "+Integer.toHexString(x));
+        dec.setText(String.format(Locale.getDefault(),"Dec: %d", x));
+        hex.setText(String.format(Locale.getDefault(),"Hex: %h", x));
     }
 }

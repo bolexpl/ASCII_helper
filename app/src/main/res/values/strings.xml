@@ -20,5 +20,13 @@
     <string name="drawer_down">Tablice i konwerter</string>
 
     <string name="hint">Liczba</string>
+    <string name="space">spacja</string>
+    <string name="char_str">Znak</string>
+    <string name="dec">Dec</string>
+    <string name="hex">Hex</string>
+    <string name="bin">Bin</string>
+    <string name="tab">tabulacja</string>
+    <string name="bin_0">Bin: 0</string>
+    <string name="hex_0">Hex: 0</string>
 
 </resources>
