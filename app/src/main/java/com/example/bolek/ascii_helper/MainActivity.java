@@ -1,7 +1,9 @@
 package com.example.bolek.ascii_helper;
 
 import android.os.Bundle;
+
 import com.google.android.material.navigation.NavigationView;
+
 import androidx.fragment.app.Fragment;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -40,12 +42,12 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        if(findViewById(R.id.fragment_container)!=null){
-            if(savedInstanceState != null) {
+        if (findViewById(R.id.fragment_container) != null) {
+            if (savedInstanceState != null) {
                 return;
             }
-            TableFragment f = new TableFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,f).commit();
+            Fragment f = new TableFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, f).commit();
             navigationView.getMenu().getItem(0).setChecked(true);
         }
     }
@@ -65,35 +67,30 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        Fragment frag;
+        Fragment frag = null;
         if (id == R.id.nav_all) {
             frag = new TableFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
         } else if (id == R.id.nav_big) {
             frag = new BigFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
         } else if (id == R.id.nav_small) {
             frag = new SmallFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
         } else if (id == R.id.nav_another) {
             frag = new AnotherFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
         } else if (id == R.id.nav_pl) {
             frag = new PlFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
         } else if (id == R.id.nav_converter) {
             frag = new ConverterFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
         } else if (id == R.id.nav_converter_bin) {
             frag = new BinFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
         } else if (id == R.id.nav_converter_dec) {
             frag = new DecFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
         } else if (id == R.id.nav_converter_hex) {
             frag = new HexFragment();
-            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
         }
+
+        if (frag == null) return false;
+
+        getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, frag).commit();
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);

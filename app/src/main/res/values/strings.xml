@@ -28,5 +28,9 @@
     <string name="tab">tabulacja</string>
     <string name="bin_0">Bin: 0</string>
     <string name="hex_0">Hex: 0</string>
+    <string name="table_char">Znak</string>
+    <string name="table_dec">Dec</string>
+    <string name="table_hex">Hex</string>
+    <string name="table_bin">Bin</string>
 
 </resources>

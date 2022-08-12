@@ -5,6 +5,8 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -28,7 +30,6 @@ public class BigFragment extends Fragment {
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -45,16 +46,23 @@ public class BigFragment extends Fragment {
         TableRow tr;
 
         for (int i = 65; i <= 90; i++) {
-            tr = (TableRow) requireActivity().getLayoutInflater().inflate(R.layout.table_row, (ViewGroup) view, false);
+            tr = (TableRow) requireActivity()
+                    .getLayoutInflater()
+                    .inflate(R.layout.table_row, null, false);
+
             tv = tr.findViewById(R.id.znak);
             tv.setText(String.valueOf((char) i));
+
             tv = tr.findViewById(R.id.dec);
             tv.setText(String.format(Locale.getDefault(),"%d", i));
+
             tv = tr.findViewById(R.id.hex);
             tv.setText(Integer.toHexString(i));
+
             tv = tr.findViewById(R.id.bin);
             tv.setText(Tools.toBin(i));
-            table.addView(tr);
+
+            table.addView(tr, TableRow.LayoutParams.MATCH_PARENT);
         }
     }
 }
