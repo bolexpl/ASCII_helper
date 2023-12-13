@@ -26,11 +26,15 @@
     <string name="hex">Hex</string>
     <string name="bin">Bin</string>
     <string name="tab">tabulacja</string>
-    <string name="bin_0">Bin: 0</string>
-    <string name="hex_0">Hex: 0</string>
     <string name="table_char">Znak</string>
     <string name="table_dec">Dec</string>
     <string name="table_hex">Hex</string>
     <string name="table_bin">Bin</string>
+    <string name="bin_0">Bin: 0</string>
+    <string name="hex_0">Hex: 0</string>
+    <string name="dec_0">Dec: 0</string>
+    <string name="bin_s">"Bin: %1$s"</string>
+    <string name="hex_s">"Hex: %1$s"</string>
+    <string name="dec_s">"Dec: %1$s"</string>
 
 </resources>

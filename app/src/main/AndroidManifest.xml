@@ -7,10 +7,8 @@
         android:icon="@mipmap/ascii_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ascii_launcher_round"
-        android:enableOnBackInvokedCallback="true"
         android:supportsRtl="true"
-        android:theme="@style/AppTheme"
-        tools:targetApi="tiramisu">
+        android:theme="@style/AppTheme">
         <activity
             android:name=".MainActivity"
             android:theme="@style/AppTheme.NoActionBar"

@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,6 @@ import com.example.bolek.ascii_helper.R;
 import com.example.bolek.ascii_helper.Tools;
 
 import java.util.Locale;
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -41,46 +39,28 @@ public class BigFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TableLayout table = requireActivity().findViewById(R.id.table);
+        TableLayout table = view.findViewById(R.id.table);
         TextView tv;
         TableRow tr;
 
-//        for (int i = 65; i <= 90; i++) {
-//            tr = (TableRow) requireActivity()
-//                    .getLayoutInflater()
-//                    .inflate(R.layout.table_row, null, false);
-//
-//            tv = tr.findViewById(R.id.znak);
-//            tv.setText(String.valueOf((char) i));
-//
-//            tv = tr.findViewById(R.id.dec);
-//            tv.setText(String.format(Locale.getDefault(),"%d", i));
-//
-//            tv = tr.findViewById(R.id.hex);
-//            tv.setText(Integer.toHexString(i));
-//
-//            tv = tr.findViewById(R.id.bin);
-//            tv.setText(Tools.toBin(i));
-//
-//            table.addView(tr, TableRow.LayoutParams.MATCH_PARENT);
-//        }
-
-        for (int i = 32; i <= 126; i++) {
-            tr = (TableRow) requireActivity().getLayoutInflater()
-                    .inflate(R.layout.table_row, null, false);
+        for (int i = 65; i <= 90; i++) {
+            tr = (TableRow) requireActivity()
+                    .getLayoutInflater()
+                    .inflate(R.layout.table_row, (ViewGroup) table, false);
 
             tv = tr.findViewById(R.id.znak);
-            if (i == 32) {
-                tv.setText(getString(R.string.space));
-            } else {
-                tv.setText(String.valueOf((char) i));
-            }
+            tv.setText(String.valueOf((char) i));
+
             tv = tr.findViewById(R.id.dec);
-            tv.setText(String.format(Locale.getDefault(), "%d", i));
+            tv.setText(String.format(Locale.getDefault(),"%d", i));
+
             tv = tr.findViewById(R.id.hex);
             tv.setText(Integer.toHexString(i));
+
             tv = tr.findViewById(R.id.bin);
             tv.setText(Tools.toBin(i));
+
+//            table.addView(tr, TableRow.LayoutParams.MATCH_PARENT);
             table.addView(tr);
         }
     }

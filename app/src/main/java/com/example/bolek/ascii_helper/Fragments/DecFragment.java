@@ -38,9 +38,9 @@ public class DecFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        edit = requireActivity().findViewById(R.id.dec);
-        bin = requireActivity().findViewById(R.id.bin);
-        hex = requireActivity().findViewById(R.id.hex);
+        edit = (EditText) view.findViewById(R.id.dec);
+        bin = (TextView) view.findViewById(R.id.bin);
+        hex = (TextView) view.findViewById(R.id.hex);
 
         edit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -63,13 +63,13 @@ public class DecFragment extends Fragment {
     private void change() {
         String s = edit.getText().toString();
         if (s.equals("")) {
-            bin.setText(R.string.bin_0);
-            hex.setText(R.string.hex_0);
+            bin.setText(getString(R.string.bin_0));
+            hex.setText(getString(R.string.hex_0));
             return;
         }
 
         int x = Integer.parseInt(s);
-        bin.setText("Bin: "+Integer.toBinaryString(x));
-        hex.setText("Hex: "+Integer.toHexString(x));
+        bin.setText(getString(R.string.bin_s, Integer.toBinaryString(x)));
+        hex.setText(getString(R.string.hex_s, Integer.toHexString(x)));
     }
 }
