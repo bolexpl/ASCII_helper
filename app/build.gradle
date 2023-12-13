@@ -1,10 +1,10 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion defaultTargetSdkVersion
     defaultConfig {
         applicationId "com.example.bolek.ascii_helper"
         minSdk 24
+        compileSdk defaultTargetSdkVersion
         targetSdkVersion defaultTargetSdkVersion
         versionCode 1
         versionName "1.0"
