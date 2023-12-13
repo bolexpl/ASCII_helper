@@ -1,6 +1,8 @@
 package com.example.bolek.ascii_helper.Fragments;
 
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -13,11 +15,12 @@ import android.widget.TextView;
 import com.example.bolek.ascii_helper.R;
 import com.example.bolek.ascii_helper.Tools;
 
+import java.util.Locale;
+
 /**
  * A simple {@link Fragment} subclass.
  */
 public class SmallFragment extends Fragment {
-
 
     public SmallFragment() {
         // Required empty public constructor
@@ -32,19 +35,19 @@ public class SmallFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TableLayout table = (TableLayout) getActivity().findViewById(R.id.table);
+        TableLayout table = (TableLayout) view.findViewById(R.id.table);
         TextView tv;
         TableRow tr;
 
         for (int i = 97; i <= 122; i++) {
-            tr = (TableRow) getActivity().getLayoutInflater().inflate(R.layout.table_row, null, false);
+            tr = (TableRow) requireActivity().getLayoutInflater().inflate(R.layout.table_row, (ViewGroup) table, false);
             tv = (TextView) tr.findViewById(R.id.znak);
             tv.setText(String.valueOf((char) i));
             tv = (TextView) tr.findViewById(R.id.dec);
-            tv.setText(Integer.toString(i));
+            tv.setText(String.format(Locale.getDefault(),"%d", i));
             tv = (TextView) tr.findViewById(R.id.hex);
             tv.setText(Integer.toHexString(i));
             tv = (TextView) tr.findViewById(R.id.bin);

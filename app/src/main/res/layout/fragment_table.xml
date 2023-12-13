@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
 
         <TableLayout
             android:id="@+id/table"
@@ -26,7 +23,7 @@
                     android:layout_weight="1"
                     android:padding="3dp"
                     android:background="@drawable/border_head"
-                    android:text="Znak" />
+                    android:text="@string/table_char" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -35,7 +32,7 @@
                     android:layout_weight="1"
                     android:padding="3dp"
                     android:background="@drawable/border_head"
-                    android:text="Dec" />
+                    android:text="@string/table_dec" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -44,7 +41,7 @@
                     android:layout_weight="1"
                     android:padding="3dp"
                     android:background="@drawable/border_head"
-                    android:text="Hex" />
+                    android:text="@string/table_hex" />
 
                 <TextView
                     android:layout_width="wrap_content"
@@ -53,11 +50,10 @@
                     android:layout_weight="1"
                     android:padding="3dp"
                     android:background="@drawable/border_head"
-                    android:text="Bin" />
+                    android:text="@string/table_bin" />
             </TableRow>
 
         </TableLayout>
-    </ScrollView>
-</RelativeLayout>
+</ScrollView>
 
 

@@ -1,6 +1,8 @@
 package com.example.bolek.ascii_helper.Fragments;
 
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,7 +13,6 @@ import android.widget.TextView;
 import com.example.bolek.ascii_helper.R;
 
 import java.util.Locale;
-import java.util.Objects;
 
 public class BinFragment extends Fragment {
 
@@ -31,7 +32,7 @@ public class BinFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
         int[] id = {
@@ -59,8 +60,8 @@ public class BinFragment extends Fragment {
             tv[i].setOnClickListener(this::onChange);
         }
 
-        dec = requireActivity().findViewById(R.id.dec);
-        hex = requireActivity().findViewById(R.id.hex);
+        dec = view.findViewById(R.id.dec);
+        hex = view.findViewById(R.id.hex);
     }
 
     private void onChange(View v) {

@@ -2,6 +2,8 @@ package com.example.bolek.ascii_helper.Fragments;
 
 
 import android.os.Bundle;
+
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import android.text.Editable;
@@ -36,12 +38,12 @@ public class HexFragment extends Fragment {
     }
 
     @Override
-    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        edit = (EditText) getActivity().findViewById(R.id.hex);
-        bin = (TextView) getActivity().findViewById(R.id.bin);
-        dec = (TextView) getActivity().findViewById(R.id.dec);
+        edit = view.findViewById(R.id.hex);
+        bin = view.findViewById(R.id.bin);
+        dec = view.findViewById(R.id.dec);
 
         edit.addTextChangedListener(new TextWatcher() {
             @Override
@@ -59,22 +61,25 @@ public class HexFragment extends Fragment {
                 change();
             }
         });
+
+        bin.setText(getString(R.string.bin_0));
+        dec.setText(getString(R.string.dec_0));
     }
 
     public void change() {
         String s = edit.getText().toString();
         if (s.equals("")) {
-            bin.setText("Bin: 0");
-            dec.setText("Dec: 0");
+            bin.setText(getString(R.string.bin_0));
+            dec.setText(getString(R.string.dec_0));
             return;
         }
 
         try {
             int x = Integer.decode("0x" + s);
-            bin.setText("Bin: "+Integer.toBinaryString(x));
-            dec.setText("Dec: "+Integer.toString(x));
+            bin.setText(getString(R.string.bin_s, Integer.toBinaryString(x)));
+            dec.setText(getString(R.string.dec_s, String.valueOf(x)));
         } catch (NumberFormatException e) {
-            Toast.makeText(getActivity().getApplicationContext(), "Niedozwolona liczba!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), "Niedozwolona liczba!", Toast.LENGTH_SHORT).show();
         }
     }
 }

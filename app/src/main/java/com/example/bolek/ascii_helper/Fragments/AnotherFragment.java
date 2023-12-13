@@ -39,13 +39,13 @@ public class AnotherFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        TableLayout table = requireActivity().findViewById(R.id.table);
+        TableLayout table = view.findViewById(R.id.table);
         TextView tv;
         TableRow tr;
 
         for (int i = 32; i <= 64; i++) {
             tr = (TableRow) requireActivity().getLayoutInflater()
-                    .inflate(R.layout.table_row, (ViewGroup) view, false);
+                    .inflate(R.layout.table_row, (ViewGroup) table, false);
             tv = tr.findViewById(R.id.znak);
             if(i==32){
                 tv.setText(R.string.space);

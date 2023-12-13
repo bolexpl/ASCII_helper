@@ -72,7 +72,7 @@ public class ConverterFragment extends Fragment {
 
         table.removeAllViews();
 
-        tr = (TableRow) requireActivity().getLayoutInflater().inflate(R.layout.table_row, (ViewGroup) view, false);
+        tr = (TableRow) requireActivity().getLayoutInflater().inflate(R.layout.table_row, (ViewGroup) table, false);
         tv = tr.findViewById(R.id.znak);
         tv.setText(R.string.char_str);
         tv.setBackground(ResourcesCompat.getDrawable(getResources(), R.drawable.border_head, null));
@@ -100,7 +100,6 @@ public class ConverterFragment extends Fragment {
             }
             tv = tr.findViewById(R.id.dec);
             tv.setText(String.format(Locale.getDefault(),"%c", s.charAt(i)));
-//            tv.setText(Integer.toString((int) s.charAt(i)));
             tv = tr.findViewById(R.id.hex);
             tv.setText(Integer.toHexString(s.charAt(i)));
             tv = tr.findViewById(R.id.bin);
