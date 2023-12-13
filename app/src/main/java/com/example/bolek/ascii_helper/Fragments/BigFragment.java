@@ -45,24 +45,43 @@ public class BigFragment extends Fragment {
         TextView tv;
         TableRow tr;
 
-        for (int i = 65; i <= 90; i++) {
-            tr = (TableRow) requireActivity()
-                    .getLayoutInflater()
+//        for (int i = 65; i <= 90; i++) {
+//            tr = (TableRow) requireActivity()
+//                    .getLayoutInflater()
+//                    .inflate(R.layout.table_row, null, false);
+//
+//            tv = tr.findViewById(R.id.znak);
+//            tv.setText(String.valueOf((char) i));
+//
+//            tv = tr.findViewById(R.id.dec);
+//            tv.setText(String.format(Locale.getDefault(),"%d", i));
+//
+//            tv = tr.findViewById(R.id.hex);
+//            tv.setText(Integer.toHexString(i));
+//
+//            tv = tr.findViewById(R.id.bin);
+//            tv.setText(Tools.toBin(i));
+//
+//            table.addView(tr, TableRow.LayoutParams.MATCH_PARENT);
+//        }
+
+        for (int i = 32; i <= 126; i++) {
+            tr = (TableRow) requireActivity().getLayoutInflater()
                     .inflate(R.layout.table_row, null, false);
 
             tv = tr.findViewById(R.id.znak);
-            tv.setText(String.valueOf((char) i));
-
+            if (i == 32) {
+                tv.setText(getString(R.string.space));
+            } else {
+                tv.setText(String.valueOf((char) i));
+            }
             tv = tr.findViewById(R.id.dec);
-            tv.setText(String.format(Locale.getDefault(),"%d", i));
-
+            tv.setText(String.format(Locale.getDefault(), "%d", i));
             tv = tr.findViewById(R.id.hex);
             tv.setText(Integer.toHexString(i));
-
             tv = tr.findViewById(R.id.bin);
             tv.setText(Tools.toBin(i));
-
-            table.addView(tr, TableRow.LayoutParams.MATCH_PARENT);
+            table.addView(tr);
         }
     }
 }
